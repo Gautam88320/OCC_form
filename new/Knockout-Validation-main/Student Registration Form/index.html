@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Student Registraion Form</title>
+</head>
+
+<body bgcolor="#55efc4">
+    <h1><u>STUDENT REGISTRATION FORM</u></h1>
+    <form id="save-form">
+        <table class="table">
+            <tr>
+                <td>First Name</td>
+                <td><input data-bind="value:firstName" id="FirstName" placeholder=" First Name" />
+                    <span data-bind="validationMessage:firstName"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Last Name </td>
+                <td><input data-bind="value:lastName" id="LastName" placeholder=" Last Name" />
+                    <span data-bind="validationMessage:lastName"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Date of Birth </td>
+                <td><select data-bind="options: availableDates, value: selectedDate
+                        " id="Date"></select>
+
+                    <select data-bind="options: availableMonths,value: selectedMonth
+                            " id="Month"></select>
+
+                    <select data-bind="options: availableYears,value: selectedYear
+                            " id="Year"></select>
+                </td>
+            </tr>
+            <tr>
+                <td>E-mail</td>
+                <td><input data-bind="value:email" id="Email" placeholder="Email ">
+                    <span data-bind="validationMessage:email"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Mobile</td>
+                <td><input data-bind="value:mobile" id="Mobile" placeholder="Mobile ">
+                    <span data-bind="validationMessage:mobile"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Gender </td>
+                <td>Male<input type="radio" id="Gender" value="Male" data-bind="checked: checkGender">
+                    Female<input type="radio" id="Gender" value="Female" data-bind="checked: checkGender"></td>
+            </tr>
+            <tr>
+                <td>Landmark </td>
+                <td>
+                    <input data-bind="value:address1" placeholder="Landmark">
+                    <span data-bind="validationMessage:address1"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td>
+                    <input data-bind="value:address2" placeholder="address">
+                    <span data-bind="validationMessage:address2"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>City </td>
+                <td>
+                    <input data-bind="value:city" placeholder="city">
+                    <span data-bind="validationMessage:city"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Zip Code </td>
+                <td><input data-bind="value:zipCode" id="ZipCode" placeholder="Zip Code">
+                    <span data-bind="validationMessage:zipCode"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>State </td>
+                <td><select data-bind="options: availableStates,value: selectedState
+                        " id="State"></select></td>
+            </tr>
+            <tr>
+                <td>Country </td>
+                <td><select data-bind="options: availableCountries,value: selectedCountry
+                    " id="Country"></select></td>
+            </tr>
+
+            <tr>
+                <td>Hobbies </td>
+                <td>
+                    Singing
+                    <input type="checkbox" data-bind="checked:singing"/>
+                    Dancing
+                    <input type="checkbox" data-bind="checked:dancing"/>
+                    Drawing
+                    <input type="checkbox" data-bind="checked:drawing"/>
+                    <br>
+                    Others
+                    <input type="checkbox" data-bind="checked:others"/>
+                    <input data-bind="value: otherHobby, enable: others" />
+
+                </td>
+            </tr>
+
+            <tr>
+                <td>Qualification </td>
+                <td>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Class X</td>
+
+                                <td>
+                                    <center>Hindi<br /><input data-bind="value: hindi1" /></center>
+                                </td>
+                                <td>
+                                    <center>English<br /><input data-bind="value: english1" /></center>
+                                </td>
+                                <td>
+                                    <center>Mathematics<br /><input data-bind="value: maths1" /></center>
+                                </td>
+                                <td>
+                                    <center>Science<br /><input data-bind="value: science1" /></center>
+                                </td>
+                                <td>
+                                    <center>Social<br /><input data-bind="value: social1" /></center>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Class XII</td>
+
+                                <td>
+                                    <center>Hindi<br /><input data-bind="value: hindi2" /></center>
+                                </td>
+                                <td>
+                                    <center>English<br /><input data-bind="value: english2" /></center>
+                                </td>
+                                <td>
+                                    <center>Mathematics<br /><input data-bind="value: maths2" /></center>
+                                </td>
+                                <td>
+                                    <center>Science<br /><input data-bind="value: science2" /></center>
+                                </td>
+                                <td>
+                                    <center>Social<br /><input data-bind="value: social2" /></center>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Course Applied :</td>
+                <td>BCA<input type="radio" id="Course" value="BCA" data-bind="checked: checkCourse" />
+                    BSC<input type="radio" id="Course" value="BSC" data-bind="checked: checkCourse" />
+                    BCOM<input type="radio" id="Course" value="BCOM" data-bind="checked: checkCourse" />
+                    BA<input type="radio" id="Course" value="BA" data-bind="checked: checkCourse" /></td>
+            </tr>
+
+
+        </table>
+
+        <p><input type="checkbox" id="TnC" data-bind="checked : tnc">All information given by me is correct.</p>
+        <input type="button"  value="SUBMIT" data-bind="click: saveData, enable:tnc ">
+        <input type="reset"  value="RESET"> <br><br>
+        <button id="delete" data-bind="click: deleteData">Delete below details</button>
+
+    </form>
+    <br><br>
+
+    <div data-bind="if: showResult">
+        <h2>Registered Student :- </h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Date of Birth</th>
+                    <th>Email Id</th>
+                    <th>Mobile</th>
+                    <th>Gender</th>
+                    <th>Address</th>
+                    <th>Hobbies</th>
+                    <th>Class X %</th>
+                    <th>Class XII %</th>
+                    <th>Course</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach:students">
+                <tr>
+                    <td><span data-bind="text: firstName"></span></td>
+                    <td><span data-bind="text: lastName"></span></td>
+                    <td><span data-bind="text: dob"></span></td>
+                    <td><span data-bind="text: email"></span></td>
+                    <td><span data-bind="text: mobile"></span></td>
+                    <td><span data-bind="text: checkGender"></span></td>
+                    <td><span data-bind="text: address"></span></td>
+                    <td><span data-bind="text: hobbies"></span></td>
+                    <td><span data-bind="text: totalMarks1"></span></td>
+                    <td><span data-bind="text: totalMarks2"></span></td>
+                    <td><span data-bind="text: checkCourse"></span></td>
+                    <!-- <td><button id="delete" data-bind="click: deleteData">Delete</button></td>                 -->
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <script src="https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout-validation/2.0.4/knockout.validation.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
